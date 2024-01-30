@@ -1,14 +1,22 @@
-// Este adaptador se encarga de realizar las llamadas a la API de productos
+import axios from 'axios';
 
-class ProductApi {
-  async getProducts() {
-    // Implementa la lógica para obtener la lista de productos desde la API
-    // Puede ser utilizando fetch u otra biblioteca para realizar peticiones HTTP
+const baseURL = 'http://localhost:4000/user';
+
+export const registerRequest = async (userData) => {
+  try {
+    const response = await axios.post(`${baseURL}/register`, userData);
+    return response;
+  } catch (error) {
+    throw error;
   }
+};
 
-  async getProductDetails(productId) {
-    // Implementa la lógica para obtener los detalles de un producto por ID desde la API
+export const loginRequest = async (userData) => {
+  try {
+    const response = await axios.post(`${baseURL}/login`, userData);
+    return response;
+  } catch (error) {
+    throw error;
   }
-}
+};
 
-export default new ProductApi();
